@@ -1,0 +1,257 @@
+body {
+    -webkit-background-color: #ffff !important;
+    -khtml-background-color: #ffff !important;
+    -moz-background-color: #ffff !important;
+    -ms-background-color: #ffff !important;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h4 {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+ul ul,
+ol ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+
+ol > li {
+    list-style-type: decimal;
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: 600;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+    font-family: "Mulish", sans-serif;
+    border: 1px solid black !importan;
+}
+
+/* SCROLLBAR */
+
+*::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for IE, Edge */
+* {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+/* Ensure scrolling is still possible */
+
+.gradient-main {
+    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+}
+
+.border-none-input {
+    border: none !important;
+}
+
+/* BOTTOM BAR */
+
+.navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation ul {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.607);
+}
+
+.navigation ul li.active a .icon {
+    transform: translateY(-32px);
+    color: white;
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: white;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+    color: white;
+}
+
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+    border-radius: 50%;
+    border: 6px solid white;
+    transition: 0.5s;
+}
+
+.indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 white;
+}
+
+.indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 white;
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(70px * 4));
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.shadow-detail {
+    box-shadow: 0px -11px 13px 8px rgba(0, 0, 0, 0.1),
+        0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.backdrop-custom {
+    background-color: rgba(0, 0, 0, 0.54);
+}
