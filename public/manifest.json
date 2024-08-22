@@ -1,9 +1,9 @@
 {
-    "name": "Koperasi SMKN 65",
+    "name": "Laravel Package Tutorial",
     "short_name": "LPT",
     "start_url": "/index.php",
     "background_color": "#6777ef",
-    "description": "Aplikasi Koperasi SMKN 65",
+    "description": "Tutorial of Laravel Package",
     "display": "fullscreen",
     "theme_color": "#6777ef",
     "icons": [

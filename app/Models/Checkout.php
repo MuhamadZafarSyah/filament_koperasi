@@ -16,4 +16,10 @@ class Checkout extends Model
     {
         return $this->belongsTo(Cart::class, 'cart_id');
     }
+
+    public function getCreatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['created_at'])
+            ->format('d, M Y ');
+    }
 }

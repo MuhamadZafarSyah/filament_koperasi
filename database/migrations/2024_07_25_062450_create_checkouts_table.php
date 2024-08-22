@@ -13,8 +13,11 @@ return new class extends Migration {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->string('img_bukti_transfer');
-            $table->unsignedBigInteger('cart_id');
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->integer('total_harga');
+            $table->string('kode_bukti');
+            $table->string('nama_pembeli');
+            $table->string('kelas_pembeli');
+            $table->enum('status', ['Pending', 'Success'])->default('Pending');
             $table->timestamps();
         });
     }

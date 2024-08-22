@@ -8,14 +8,26 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(Product $product)
+    public function index(Product $product, Request $request)
     {
-        $products = Product::with('penjualan')
-            ->where('category_slug', $product->category_slug)
-            ->orderBy('created_at', 'desc')
-            ->paginate('14');
+        $search = $request->input('search');
 
-        return view('product', compact('products'));
+        if ($search) {
+
+            $products = Product::filter(['search' => $search])->paginate('1000');
+            // dd($products);
+        } else {
+            $products = Product::with('penjualan')
+                ->where('category_slug', $product->category_slug)
+                ->orderBy('created_at', 'desc')
+                ->paginate('14');
+        }
+
+        return view('product', [
+            'products' => $products,
+            'header' => 'Search Results : "' . request('search') . '"',
+            'title' => 'You search for ' . request('search') . '',
+        ]);
     }
 
     public function show(Product $product)
@@ -35,19 +47,19 @@ class ProductController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
+    // public function search(Request $request)
+    // {
 
-        $search = $request->input('search');
+    //     $search = $request->input('search');
 
-        // Gunakan scopeFilter untuk mencari produk berdasarkan product_name
-        $products = Product::filter(['search' => $search])->get();
+    //     // Gunakan scopeFilter untuk mencari produk berdasarkan product_name
+    //     $products = Product::filter(['search' => $search])->get();
 
 
-        return view('product', [
-            'products' => $products,
-            'header' => 'Search Results : "' . request('search') . '"',
-            'title' => 'You search for ' . request('search') . '',
-        ]);
-    }
+    //     return view('product', [
+    //         'products' => $products,
+    //         'header' => 'Search Results : "' . request('search') . '"',
+    //         'title' => 'You search for ' . request('search') . '',
+    //     ]);
+    // }
 }

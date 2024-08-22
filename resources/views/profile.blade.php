@@ -31,6 +31,9 @@
                 </div>
                 <div class="ml-6 font-mulish">
                     <h1 class=" text-base font-bold">Kelas</h1>
+                    @if (Auth::user()->class == null)
+                        <h2 class="text-base font-normal">Belum diatur</h2>
+                    @endif
                     <h2 class="text-base font-normal">{{ Auth::user()->class }}</h2>
                 </div>
             </div>
@@ -76,22 +79,55 @@
                 <form method="POST" action="/profile/update">
                     @csrf
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="picture">Foto Profile</label>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="picture">Foto Profil</label>
                         <div class="flex space-x-4">
-                            <template x-for="(picture, index) in pictures" :key="index">
-                                <img :src="picture.src" class="w-20 h-20 rounded-full cursor-pointer"
-                                    @click="selectedPicture = picture.src"
-                                    :class="selectedPicture === picture.src ? 'border-4 border-blue-500' : ''">
-                            </template>
+                            <img src="{{ asset('assets/icons/man-profile.webp') }}"
+                                class="w-20 h-20 rounded-full cursor-pointer"
+                                @click="selectedPicture = '/assets/icons/man-profile.webp'"
+                                :class="selectedPicture === '/assets/icons/man-profile.webp' ?
+                                    'border-4 border-blue-500' : ''">
+                            <img src="{{ asset('assets/icons/woman-profile.webp') }}"
+                                class="w-20 h-20 rounded-full cursor-pointer"
+                                @click="selectedPicture = '/assets/icons/woman-profile.webp'"
+                                :class="selectedPicture === '/assets/icons/woman-profile.webp' ?
+                                    'border-4 border-blue-500' : ''">
                         </div>
                         <input type="hidden" name="picture" :value="selectedPicture">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Nomor Handphone</label>
                         <input pattern="\(?[0-9]{3}\)?[- .]?[0-9]{3}[- .]?[0-9]{4}" placeholder="cth: 0812..."
-                            minlength="12" min="200" pattern="^\d{10}$" required inputmode="numeric" type="tel"
+                            minlength="11" min="200" pattern="^\d{10}$" required inputmode="numeric" type="tel"
                             id="phone" name="phone" x-model="phone"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">Kelas</label>
+                        <div class="text-white ">
+                            <select id="class" name="class"
+                                class="bg-transparentshadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <option selected disabled>Kelas Kamu</option>
+                                <option class="text-black">XII PPLG 1</option>
+                                <option class="text-black">XII PPLG 2</option>
+                                <option class="text-black">XII DKV 1</option>
+                                <option class="text-black">XII DKV 2</option>
+                                <option class="text-black">XII BCF 1</option>
+                                <option class="text-black">XII BCF 2</option>
+                                <option class="text-black">XI PPLG 1</option>
+                                <option class="text-black">XI PPLG 2</option>
+                                <option class="text-black">XI DKV 1</option>
+                                <option class="text-black">XI DKV 2</option>
+                                <option class="text-black">XI BCF 1</option>
+                                <option class="text-black">XI BCF 2</option>
+                                <option class="text-black">X PPLG 1</option>
+                                <option class="text-black">X PPLG 2</option>
+                                <option class="text-black">X DKV 1</option>
+                                <option class="text-black">X DKV 2</option>
+                                <option class="text-black">X BCF 1</option>
+                                <option class="text-black">X BCF 2</option>
+
+                            </select>
+                        </div>
                     </div>
 
                     <div class="mb-4">

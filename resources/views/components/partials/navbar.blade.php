@@ -12,9 +12,9 @@
 
         <li class="list {{ Request::is('transaction') ? 'active' : '' }}">
             <a href="#">
-                <a href="#">
+                <a href="#" class="delayed-link" data-href="/transaction">
                     <span class="icon"><ion-icon name="receipt-outline"></ion-icon></span>
-                    <span class="text">Message</span>
+                    <span class="text">Transaction</span>
                 </a>
             </a>
         </li>

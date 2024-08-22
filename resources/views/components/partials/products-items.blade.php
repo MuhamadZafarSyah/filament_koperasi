@@ -5,6 +5,8 @@
         <h1 class="text-xl font-bold text-gray-700">Produk Tidak Ditemukan</h1>
     </div>
 @else
+    {{-- @dd($products) --}}
+
     <div class="grid grid-cols-2 px-2 h-full gap-x-2 mb-4">
         {{-- @dd($products) --}}
         @foreach ($products as $product)
@@ -100,8 +102,8 @@
             @endif
         @endforeach
     </div>
-    @if ($products->count() >= 8)
-        <nav class="flex justify-center   gap-10 p-4" aria-label="Table navigation">
+    @if (count($products) >= 8)
+        <nav class="flex justify-center  gap-10 p-4" aria-label="Table navigation">
             {{ $products->links() }}
         </nav>
     @endif

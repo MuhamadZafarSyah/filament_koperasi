@@ -1,6 +1,7 @@
 @extends('components.layout')
 
 @section('content')
+    {{-- @dd($carts) --}}
     <main>
         <header class="py-5 relative text-center px-5">
             <div class="relative">
@@ -60,10 +61,16 @@
             </div>
 
             <div class="w-full">
-                <a href="/checkout">
-                    <button class="py-4 bg-black rounded-full text-white w-full text-center font-bold">Checkout</button>
-                </a>
+                @if ($totalQuantity == null)
+                    <button class="py-4 bg-gray-600 cursor-not-allowed rounded-full text-white w-full text-center font-bold"
+                        disabled>Tidak Ada Barang</button>
+                @else
+                    <a href="/checkout">
+                        <button class="py-4 bg-black rounded-full text-white w-full text-center font-bold">Checkout</button>
+                    </a>
+                @endif
             </div>
+        </div>
         </div>
     </main>
 @endsection

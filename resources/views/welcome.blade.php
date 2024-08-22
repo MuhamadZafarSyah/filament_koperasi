@@ -4,7 +4,7 @@
     {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
     @include('components.partials.topbar')
-    <main class="px-5 py-10 no-scrollbar">
+    <main class="p-5 no-scrollbar">
         @include('components.partials.category-list')
         @include('components.partials.news')
 

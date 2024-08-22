@@ -18,8 +18,10 @@
     <link rel="shortcut icon" class="rounded-full" href="{{ asset('assets/icons/logo_sekolah.webp') }}"
         type="image/x-icon">
     <title>Koperasi SMK Negeri 65</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
+
+    {{-- ALPINE JS --}}
+
 
 
     {{-- CUSTOM CSS --}}
@@ -38,88 +40,6 @@
         rel="stylesheet">
 
 
-    <style>
-        h1 {
-            display: block;
-            font-size: 2em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        h2 {
-            display: block;
-            font-size: 1.5em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        h3 {
-            display: block;
-            font-size: 1.17em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        h4 {
-            display: block;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        h5 {
-            display: block;
-            font-size: 0.83em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        h6 {
-            display: block;
-            font-size: 0.67em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-        }
-
-        ul {
-            list-style-type: disc !important;
-            list-style-position: inside !important;
-        }
-
-        ol {
-            list-style-type: decimal !important;
-            list-style-position: inside !important;
-        }
-
-        ul ul,
-        ol ul {
-            list-style-type: circle !important;
-            list-style-position: inside !important;
-            margin-left: 15px !important;
-        }
-
-        ol>li {
-            list-style-type: decimal !important;
-        }
-
-        blockquote {
-            font-style: italic !important;
-            font-weight: 600 !important;
-        }
-
-        ol ol,
-        ul ol {
-            list-style-type: lower-latin !important;
-            list-style-position: inside !important;
-            margin-left: 15px !important;
-        }
-    </style>
-
 </head>
 
 <body class="bg-white dark:bg-white no-scrollbar" style="background-color: white!important">
@@ -128,11 +48,8 @@
         @include('components.nodesktop')
     </main>
 
-    <main class="md:hidden block no-scrollbar">
-
+    <main class="md:hidden block">
         @yield('content')
-
-
     </main>
 
     @include('sweetalert::alert')
@@ -150,7 +67,7 @@
 
                 setTimeout(function() {
                     window.location.href = href;
-                }, 2000); // Delay 2000ms (2 detik)
+                }, 1000); // Delay 2000ms (2 detik)
             });
         });
     </script>
