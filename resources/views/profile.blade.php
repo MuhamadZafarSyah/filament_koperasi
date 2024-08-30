@@ -95,18 +95,25 @@
                         <input type="hidden" name="picture" :value="selectedPicture">
                     </div>
                     <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" value="{{ Auth::user()->name }}"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Nomor Handphone</label>
                         <input pattern="\(?[0-9]{3}\)?[- .]?[0-9]{3}[- .]?[0-9]{4}" placeholder="cth: 0812..."
                             minlength="11" min="200" pattern="^\d{10}$" required inputmode="numeric" type="tel"
                             id="phone" name="phone" x-model="phone"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
+                    {{-- @dd(Auth::user()) --}}
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">Kelas</label>
                         <div class="text-white ">
                             <select id="class" name="class"
                                 class="bg-transparentshadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                <option selected disabled>Kelas Kamu</option>
+                                <option value="{{ Auth::user()->class }}" hidden selected>
+                                    {{ Auth::user()->class ? Auth::user()->class : 'Kelas Kamu' }}</option>
                                 <option class="text-black">XII PPLG 1</option>
                                 <option class="text-black">XII PPLG 2</option>
                                 <option class="text-black">XII DKV 1</option>

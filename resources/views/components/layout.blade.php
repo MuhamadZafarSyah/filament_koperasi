@@ -31,7 +31,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
     {{-- FONTS --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,24 +39,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader {
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+    </style>
 </head>
 
-<body class="bg-white dark:bg-white no-scrollbar" style="background-color: white!important">
+<body class="bg-white dark:bg-white no-scrollbar" x-data="{ loading: false }" x-init="$nextTick(() => loading = false)">
+
+    <!-- Loader Element -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50" x-show="loading">
+        <div
+            class="loader border-t-transparent border-solid animate-spin rounded-full border-blue-400 border-4 h-12 w-12">
+        </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <main x-show="!loading" x-cloak>
+        @yield('content')
+    </main>
 
     <main class="hidden md:block">
         @include('components.nodesktop')
     </main>
 
-    <main class="md:hidden block">
-        @yield('content')
-    </main>
 
     @include('sweetalert::alert')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @yield('script_copyToClipBoard')
 
     <script>

@@ -6,7 +6,7 @@
         <header class="py-5 relative text-center px-5">
             <div class="relative">
                 <div class="absolute bottom-[7px]">
-                    <a href="javascript:history.back()">
+                    <a href="javascript:history.back()" @click="loading = true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path

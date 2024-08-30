@@ -16,7 +16,7 @@ class onlyUser
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->guest() || auth()->user()->role == 'admin') {
-            abort(403);
+            return redirect('/adminsmkn65');
         }
         return $next($request);
     }

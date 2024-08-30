@@ -65,7 +65,7 @@
                                     <img class="w-[50px] " src="{{ asset('assets/icons/icon-lainnya.webp') }}"
                                         alt="Koperasi-Category = lainnya">
                                     <h1
-                                        class="font-mulish text-[13px] {{ Request::is('category/lainnya') ? 'text-black font-bold' : 'text-[#C9C9C9]' }}">
+                                        class="font-mulish text-[13px] {{ Request::is('category/Lainnya') ? 'text-black font-bold' : 'text-[#C9C9C9]' }}">
                                         Lainnnya</h1>
                                 </a>
                             </div>
@@ -75,7 +75,7 @@
 
             </div>
             <div class="">
-                <a href="/">
+                <a href="/" @click="loading = true">
                     <img class="w-[35px] mx-2" src="{{ asset('assets/icons/icon-x.webp') }}" alt="">
                 </a>
             </div>

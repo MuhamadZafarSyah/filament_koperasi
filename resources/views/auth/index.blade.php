@@ -209,7 +209,7 @@
                             @csrf
                             <input type="hidden" name="action" value="register">
                             <div class="text-white mt-5">
-                                <label for="name">Name</label>
+                                <label for="name">Nama</label>
                                 <div
                                     class="rounded-md border-2 border-white  @error('name') border-red-600
                                     @enderror text-white items-center flex p-2 gap-2">
@@ -220,7 +220,7 @@
                                     </svg>
                                     <input required type="name" name="name"
                                         class="w-full bg-transparent text-sm focus-visible:outline-none  placeholder-white"
-                                        placeholder="Your Name">
+                                        placeholder="Nama Lengkap Kamu">
                                 </div>
                                 @error('name')
                                     <div class="absolute text-xs text-red-500">{{ $message }}</div>
@@ -246,6 +246,7 @@
                                 @enderror
                             </div>
                             <div class="text-white mt-5">
+                                <label for="class">Kelas</label>
                                 <select id="class" name="class"
                                     class="bg-transparent rounded-md border-2 border-white text-sm  focus:ring-white focus:border-white block w-full p-2.5 ">
                                     <option selected disabled>Kelas Kamu</option>

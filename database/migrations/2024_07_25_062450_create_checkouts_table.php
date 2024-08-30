@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('kode_bukti');
             $table->string('nama_pembeli');
             $table->string('kelas_pembeli');
+            $table->string('nama_barang');
+            $table->string('harga_barang');
             $table->enum('status', ['Pending', 'Success'])->default('Pending');
             $table->timestamps();
         });

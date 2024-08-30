@@ -37,6 +37,9 @@ class CheckoutResource extends Resource
                 TextInput::make('kode_bukti'),
                 TextInput::make('total_harga'),
                 FileUpload::make('img_bukti_transfer')
+                    ->label('Bukti Transfer'),
+                TextInput::make('nama_barang')
+                    ->label('Nama Nama Barang'),
             ]);
     }
     public static function canCreate(): bool
@@ -49,6 +52,7 @@ class CheckoutResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('img_bukti_transfer')
+                    ->label('Bukti Transfer')
                     ->size(100),
                 TextColumn::make('nama_pembeli')
                     ->searchable()
@@ -69,6 +73,7 @@ class CheckoutResource extends Resource
                         'danger' => static fn($state): bool => $state === 'Failed',
                     ]),
                 TextColumn::make('created_at')
+                    ->label('Tanggal Pembayaran')
                     ->description('Tanggal pembayaran', position: 'above')
             ])
 
@@ -91,6 +96,9 @@ class CheckoutResource extends Resource
                         $checkout->save();
                         // Checkout::destroy($checkout);
                     }),
+                Tables\Actions\DeleteAction::make()
+                    ->icon('heroicon-m-trash')
+                    ->iconButton(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

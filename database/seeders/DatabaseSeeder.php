@@ -63,7 +63,6 @@ class DatabaseSeeder extends Seeder
             'SKU Kuning',
             'Roti Padimas',
             'Roti Sisir Nanas',
-            'French Fries',
             'Kacang Sukro',
             'Chitato Lite',
             'Happy Tos',
@@ -135,7 +134,6 @@ class DatabaseSeeder extends Seeder
             5000,
             2500,
             2500,
-            2000,
             2000,
             2000,
             2000,
@@ -247,12 +245,10 @@ class DatabaseSeeder extends Seeder
             'jajanan',
             'jajanan',
             'jajanan',
-            'jajanan',
             'jajanan'
         ];
 
         $category = [
-            'Jajanan',
             'Jajanan',
             'Jajanan',
             'Jajanan',
@@ -369,7 +365,6 @@ class DatabaseSeeder extends Seeder
             'Cokelat',
             null,
             'Coconut',
-            null,
             null,
             'Cokelat',
             'Cokelat, Keju',

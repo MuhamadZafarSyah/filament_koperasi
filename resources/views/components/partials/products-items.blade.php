@@ -21,10 +21,17 @@
                 // dd($product);
             @endphp
             @if ($stock_baru !== 0)
-                <a href="/product/{{ $product->id }}">
+                <a href="/product/{{ $product->id }}" @click="loading = true">
                     <div class="w-full overflow-hidden mt-4 bg-white rounded-md">
                         <div class="h-36 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="/storage/{{ $product->image }}" alt="">
+                            @if ($product->image !== null)
+                                <img class="w-full h-full object-cover" src="/storage/{{ $product->image }}"
+                                    alt="">
+                            @else
+                                <div class="h-52 flex justify-center items-center text-center">
+                                    <span>Tidak Ada Gambar</span>
+                                </div>
+                            @endif
                         </div>
                         <div class=" bg-white pt-1">
                             <div class=" py-1 px-2">
@@ -54,7 +61,7 @@
                                             <span class="mr-1 font-bold text-[10px]">Baru Saja</span>
                                         @else
                                             <span
-                                                class="mr-1 font-bold text-[10px]">{{ $product->updated_at->diffForHumans() }}</span>
+                                                class="mr-1 font-bold text-[10px]">{{ $product->created_at->diffForHumans() }}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -93,7 +100,7 @@
                                     <span class="text-gray-600 ">Stock</span>
                                 </div>
                                 <div class="flex justify-between text-xs items-center">
-                                    <span class="mr-1 font-bold">{{ $product->updated_at->diffForHumans() }}</span>
+                                    <span class="mr-1 font-bold">{{ $product->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
                         </div>
@@ -102,10 +109,10 @@
             @endif
         @endforeach
     </div>
-    @if (count($products) >= 8)
-        <nav class="flex justify-center  gap-10 p-4" aria-label="Table navigation">
-            {{ $products->links() }}
-        </nav>
-    @endif
+    {{-- @if (count($products) >= 8) --}}
+    <nav class="flex justify-center  gap-10 p-4" aria-label="Table navigation">
+        {{ $products->links() }}
+    </nav>
+    {{-- @endif --}}
     {{-- @endif --}}
 @endif

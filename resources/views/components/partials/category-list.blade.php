@@ -4,7 +4,7 @@
         <li class="flex items-center flex-col shrink-0 w-1/4">
             <div
                 class="w-full text-center flex flex-col pt-2 mx-auto items-center {{ Request::is('category/seragam') ? 'border-t-[#6367B0] border-t-2' : '' }}">
-                <a href="/category/seragam">
+                <a href="/category/seragam" @click="loading = true">
                     <img class="w-16 mx-auto" width="20" src="{{ asset('assets/icons/icon-seragam.webp') }}"
                         alt="Koperasi-Category = seragam">
                     <h1
@@ -16,7 +16,7 @@
         <li class="flex items-center flex-col shrink-0 w-1/4">
             <div
                 class="w-full text-center flex flex-col pt-2 mx-auto items-center {{ Request::is('category/alat-tulis') ? 'border-t-[#6367B0] border-t-2' : '' }}">
-                <a href="/category/alat-tulis">
+                <a href="/category/alat-tulis" @click="loading = true">
                     <img class="w-[72px] mx-auto" src="{{ asset('assets/icons/icon-alat-tulis.webp') }}"
                         alt="Koperasi-Category = alat-tulis">
                     <h1
@@ -28,7 +28,7 @@
         <li class="flex items-center flex-col shrink-0 w-1/4">
             <div
                 class="w-full text-center flex flex-col pt-2 mx-auto items-center {{ Request::is('category/jajanan') ? 'border-t-[#6367B0] border-t-2' : '' }}">
-                <a href="/category/jajanan">
+                <a href="/category/jajanan" @click="loading = true">
                     <img class="w-16 mx-auto" src="{{ asset('assets/icons/icon-jajanan.webp') }}"
                         alt="Koperasi-Category = jajanan">
                     <h1
@@ -40,12 +40,12 @@
         <li class="flex items-center flex-col shrink-0 w-1/4">
             <div
                 class="w-full text-center flex flex-col pt-2  items-center {{ Request::is('category/Lainnya') ? 'border-t-[#6367B0] border-t-2' : '' }}">
-                <a href="/category/Lainnya">
+                <a href="/category/Lainnya" @click="loading = true">
                     <img class="w-[60px] " src="{{ asset('assets/icons/icon-lainnya.webp') }}"
                         alt="Koperasi-Category = lainnya">
                     <h1
-                        class="font-mulish text-[13px] {{ Request::is('category/lainnya') ? 'text-black font-bold' : 'text-[#C9C9C9]' }}">
-                        Lainnnya</h1>
+                        class="font-mulish text-[13px] {{ Request::is('category/Lainnya') ? 'text-black font-bold' : 'text-[#C9C9C9]' }}">
+                        Lainnya</h1>
                 </a>
             </div>
         </li>

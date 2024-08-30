@@ -20,6 +20,7 @@ class ProfileController extends Controller
             'date_of_birth' => 'nullable|date',
             'picture' => 'string',
             'class' => 'string',
+            'name' => 'string',
         ]);
 
         User::where('id', Auth::id())->update([
@@ -27,6 +28,7 @@ class ProfileController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'picture' => $request->picture,
             'class' => $request->class,
+            'name' => $request->name,
         ]);
 
 

@@ -38,7 +38,10 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/')->with('success', 'You are Logged in!');
+            if (Auth::user()->role == 'admin') {
+                return redirect('/adminsmkn65');
+            }
+            return redirect('/')->with('success', 'Halo ' . Auth::user()->name . '!');
         } else {
             toast('Login Failed', 'failed')->error('Login failed!');
             return redirect()->back()->with('loginError', 'Login failed!');

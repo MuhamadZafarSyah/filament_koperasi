@@ -15,7 +15,7 @@
         <header class="w-full px-5 py-4  fixed top-0 z-50">
             <div class="flex justify-between items-center">
                 <div class="p-2 bg-white rounded-full shadow-black">
-                    <a href="/category/{{ $product->category_slug }}">
+                    <a href="/category/{{ $product->category_slug }}" @click="loading = true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
@@ -24,7 +24,7 @@
                     </a>
                 </div>
                 <div class="p-2 bg-white rounded-full shadow-black">
-                    <a href="/my-cart">
+                    <a href="/my-cart" @click="loading = true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path

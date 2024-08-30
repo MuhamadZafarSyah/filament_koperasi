@@ -31,29 +31,36 @@ class CartController extends Controller
         $product = Product::findOrFail($request->product_id);
         $user_id = Auth::user()->id;
 
-        // Check if the product is already in the cart
         $cartItem = Cart::where('user_id', $user_id)
             ->where('product_id', $request->product_id)
             ->first();
 
         if ($cartItem) {
-            // If product is already in the cart, just increment the quantity
-            $cartItem->quantity += 1;
-            $cartItem->total = $cartItem->quantity * $product->price; // Update total based on new quantity
-            $cartItem->save();
+            if ($cartItem->quantity < $product->stock) {
+                $cartItem->quantity += 1;
+                $cartItem->total = $cartItem->quantity * $product->price;
+                $cartItem->save();
+                toast('Ditambahkan ke keranjang', 'success');
+            } else {
+                toast('Tidak dapat menambahkan lebih dari stok yang tersedia', 'error');
+            }
         } else {
-            // If product is not in the cart, create a new cart item
-            Cart::create([
-                'user_id' => $user_id,
-                'product_id' => $request->product_id,
-                'quantity' => 1,
-                'total' => $product->price, // Calculate total based on product price
-            ]);
+            if ($product->stock > 0) {
+                Cart::create([
+                    'user_id' => $user_id,
+                    'product_id' => $request->product_id,
+                    'quantity' => 1,
+                    'total' => $product->price,
+                ]);
+                toast('Ditambahkan ke keranjang', 'success');
+            } else {
+                toast('Stock barang habis', 'error');
+            }
         }
 
-        toast('Ditambahkan ke keranjang', 'success');
         return redirect()->back();
     }
+
 
 
     public function destroy(Cart $cart)
