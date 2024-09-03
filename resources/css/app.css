@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+@tailwind base;
+@layer base {
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    h3 {
+        @apply text-lg;
+    }
+    li {
+        @apply list-disc;
+    }
+}
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .gradient-main {
+        background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+    }
+}
+
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none !important;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none !important; /* IE and Edge */
+        scrollbar-width: none !important; /* Firefox */
+    }
+}
